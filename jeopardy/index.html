@@ -1,21 +1,102 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Jeopardy</title>
-  <link href="https://fonts.googleapis.com/css?family=Copse&display=swap"
-        rel="stylesheet">
-  <link rel="stylesheet" href="jeopardy.css">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Jeopardy Game</title>
+      <link href="https://fonts.googleapis.com/css?family=Copse&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="jeopardy.css">
 </head>
+
 <body>
+      <!-- Start Screen -->
+      <div id="start-screen" class="container show">
+            <h1>Welcome to Jeopardy!</h1>
+            <button id="start-game-btn" class="btn">Start Game</button>
+      </div>
 
-<script src="https://unpkg.com/jquery"></script>
-<script src="https://unpkg.com/axios/dist/axios.js"></script>
-<script src="https://unpkg.com/lodash"></script>
-<script src="jeopardy.js"></script>
+      <!-- Loading Screen -->
+      <div id="loading-screen" class="container">
+            <h2>Loading...</h2>
+      </div>
 
+      <!-- Game Board Screen -->
+      <div id="game-board-screen" class="container">
+            <h1>Jeopardy Game Board</h1>
+
+            <!-- Score Table for Teams -->
+            <div id="score-table" class="score-table">
+                  <h2>Score Board</h2>
+                  <table>
+                        <thead>
+                              <tr>
+                                    <th>Team</th>
+                                    <th>Score</th>
+                                    <th>Adjust</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                              <tr id="team-1">
+                                    <td>Team 1</td>
+                                    <td class="score" data-team="1">0</td>
+                                    <td>
+                                          <button class="btn adjust-score" data-team="1" data-adjust="add">+</button>
+                                          <button class="btn adjust-score" data-team="1"
+                                                data-adjust="subtract">-</button>
+                                    </td>
+                              </tr>
+                              <tr id="team-2">
+                                    <td>Team 2</td>
+                                    <td class="score" data-team="2">0</td>
+                                    <td>
+                                          <button class="btn adjust-score" data-team="2" data-adjust="add">+</button>
+                                          <button class="btn adjust-score" data-team="2"
+                                                data-adjust="subtract">-</button>
+                                    </td>
+                              </tr>
+                              <tr id="team-3">
+                                    <td>Team 3</td>
+                                    <td class="score" data-team="3">0</td>
+                                    <td>
+                                          <button class="btn adjust-score" data-team="3" data-adjust="add">+</button>
+                                          <button class="btn adjust-score" data-team="3"
+                                                data-adjust="subtract">-</button>
+                                    </td>
+                              </tr>
+                        </tbody>
+                  </table>
+            </div>
+
+            <!-- Jeopardy Game Board -->
+            <table id="jeopardy">
+                  <thead></thead>
+                  <tbody></tbody>
+            </table>
+
+            <!-- Winning Team Heading and Leaderboard -->
+            <h2 id="winning-team-heading">Winning Team:</h2>
+            <div id="leaderboard" class="leaderboard">
+                  <ol id="rankings"></ol>
+            </div>
+
+            <!-- Control Buttons -->
+            <button id="complete-game-btn" class="btn">Complete Game</button>
+            <button id="restart-game-btn" class="btn">Restart Game</button>
+            <button id="back-to-start-btn" class="btn">Back to Start</button>
+      </div>
+
+      <!-- Rankings Div for Post-Game Results -->
+      <div id="rankings-div" class="container">
+            <h2>Final Rankings</h2>
+            <ol id="final-rankings"></ol>
+            <button id="back-to-main-btn" class="btn">Back to Start</button>
+      </div>
+
+      <script src="https://unpkg.com/jquery"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="https://unpkg.com/lodash"></script>
+      <script src="jeopardy.js"></script>
 </body>
-</html
+
+</html>
